@@ -1,0 +1,7 @@
+-- neovim
+rg
+fd
+git
+
+-- zsh
+antidote
