@@ -1,7 +1,7 @@
 [user]
 	email = moemanon@pm.me
 	name = Emanon
-	signingkey = /home/emanon/.ssh/id_ed25519.pub
+	signingkey = ~/.ssh/id_ed25519.pub
 [commit]
 	gpgsign = true
 [gpg]
