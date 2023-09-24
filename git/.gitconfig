@@ -1,0 +1,8 @@
+[user]
+	email = emanon@emanon.dev
+	name = Emanon
+	signingkey = /home/emanon/.ssh/id_ed25519.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
