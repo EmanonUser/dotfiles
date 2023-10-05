@@ -7,6 +7,7 @@ return {
     lspconfig.pyright.setup {}
     lspconfig.tsserver.setup {}
     lspconfig.taplo.setup {}
+    lspconfig.dockerls.setup {}
     lspconfig.lua_ls.setup {
       settings = {
         Lua = {

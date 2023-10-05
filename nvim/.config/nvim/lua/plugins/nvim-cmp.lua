@@ -8,15 +8,20 @@ return {
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
+    'windwp/nvim-autopairs',
   },
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local lspconfig = require('lspconfig')
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', "ansible-language-server" }
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
-
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
