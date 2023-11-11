@@ -16,6 +16,7 @@ return {
     lspconfig.taplo.setup {}
     lspconfig.dockerls.setup {}
     lspconfig.yamlls.setup {}
+    lspconfig.nil_ls.setup{}
     lspconfig.lua_ls.setup {
       settings = {
         Lua = {
