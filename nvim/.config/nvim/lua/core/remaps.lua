@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
 -- Disable arrows
 vim.api.nvim_set_keymap('n', '<Up>', '', {})
 vim.api.nvim_set_keymap('n', '<Down>', '', {})
