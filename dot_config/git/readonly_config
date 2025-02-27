@@ -1,0 +1,22 @@
+[color]
+	ui = "auto"
+
+[commit]
+	gpgsign = true
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	allowedSignersFile = "~/.ssh/allowed_signers"
+
+[init]
+	defaultBranch = "main"
+
+[pull]
+	rebase = "true"
+
+[user]
+	email = "moemanon@pm.me"
+	name = "Emanon"
+	signingkey = "~/.ssh/id_ed25519.pub"
