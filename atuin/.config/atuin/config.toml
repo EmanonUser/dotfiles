@@ -1,0 +1,3 @@
+auto_sync = true
+keymap_mode = "vim-normal"
+sync_frequency = "5m"
