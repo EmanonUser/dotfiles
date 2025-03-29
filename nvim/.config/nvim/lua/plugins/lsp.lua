@@ -1,12 +1,7 @@
---
---
---
---
---
 return {
   "neovim/nvim-lspconfig",
   priority = 1,
-  config = function(_, opts)
+  config = function()
     local lspconfig = require('lspconfig')
     local border = {
       { "┌", "FloatBorder" },
@@ -18,6 +13,13 @@ return {
       { "└", "FloatBorder" },
       { "│", "FloatBorder" },
     }
+
+    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+      opts = opts or {}
+      opts.border = opts.border or border
+      return orig_util_open_floating_preview(contents, syntax, opts, ...)
+    end
 
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -38,20 +40,14 @@ return {
       end,
     })
 
-
-    local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-    function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-      opts = opts or {}
-      opts.border = opts.border or border
-      return orig_util_open_floating_preview(contents, syntax, opts, ...)
-    end
-
-    lspconfig.pyright.setup {}
-    lspconfig.taplo.setup {}
-    lspconfig.dockerls.setup {}
-    lspconfig.yamlls.setup {}
-    lspconfig.nil_ls.setup {}
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
+    lspconfig.pyright.setup { capabilities = capabilities }
+    lspconfig.taplo.setup { capabilities = capabilities }
+    lspconfig.dockerls.setup { capabilities = capabilities }
+    lspconfig.yamlls.setup { capabilities = capabilities }
+    lspconfig.nil_ls.setup { capabilities = capabilities }
     lspconfig.lua_ls.setup {
+      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {
@@ -60,8 +56,9 @@ return {
         },
       },
     }
-    lspconfig.ansiblels.setup {}
+    lspconfig.ansiblels.setup { capabilities = capabilities }
     lspconfig.rust_analyzer.setup {
+      capabilities = capabilities,
       settings = {
         ['rust-analyzer'] = {},
       },
