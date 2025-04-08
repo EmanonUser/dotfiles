@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 vim.api.nvim_create_autocmd("LspAttach", {
   desc = 'Format buffer on save',
   group = vim.api.nvim_create_augroup("lsp", { clear = true }),
@@ -31,7 +28,3 @@ vim.api.nvim_create_autocmd('BufWritePre', {
     vim.fn.setpos(".", cursor)
   end,
 })
-
-vim.keymap.set('n', '<space>gd', function()
-  vim.lsp.buf.format { async = false }
-end, { desc = 'Format buffer' })
