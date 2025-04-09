@@ -1,5 +1,6 @@
 return {
   "saghen/blink.cmp",
+  event = "InsertEnter",
   -- optional: provides snippets for the snippet source
   dependencies = {
     {
@@ -35,7 +36,7 @@ return {
     -- C-k: Toggle signature help (if signature.enabled = true)
     --
     -- See :h blink-cmp-config-keymap for defining your own keymap
-    keymap = { preset = "enter" },
+    keymap = { preset = "super-tab" },
     snippets = { preset = "luasnip" },
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

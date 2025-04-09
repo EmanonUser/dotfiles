@@ -7,8 +7,11 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 
 vim.diagnostic.config({
-  virtual_lines = true
+  virtual_lines = { current_line = true },
+  underline = true,
+  update_in_insert = false
 })
+
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
