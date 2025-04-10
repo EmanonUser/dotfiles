@@ -30,6 +30,31 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+try_source_plugin() {
+  local plugin_name="$1"
+  shift
+  local paths_to_check=("$@")
 
+  local path
+  for path in "${paths_to_check[@]}"; do
+    if [[ -r "$path" ]]; then
+      source "$path"
+      return 0
+    fi
+  done
+
+  echo "Warning: Plugin '$plugin_name' not found or not readable at expected system locations." >&2
+  echo "  Searched:" >&2
+  for path in "${paths_to_check[@]}"; do
+    echo "  - $path" >&2
+  done
+  return 1
+}
+
+try_source_plugin "zsh-autosuggestions" \
+  "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  "/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+try_source_plugin "zsh-syntax-highlighting" \
+  "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
+  "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
