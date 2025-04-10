@@ -1,9 +1,8 @@
 return {
   'stevearc/oil.nvim',
-  opts = {},
+  opts = {
+    vim.keymap.set("n", "<leader>pv", vim.cmd.Oil)
+  },
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
-  config = function()
-    vim.keymap.set("n", "<leader>pv", vim.cmd.Lazy)
-  end,
 }
