@@ -7,6 +7,8 @@ alias ip="ip --color=auto"
 alias grep="grep --color"
 alias cd="z"
 
+export MANPAGER="nvim +Man!"
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' list-colors ''
