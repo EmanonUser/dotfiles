@@ -4,7 +4,6 @@ alias ls="ls --color"
 alias grep="grep --color"
 alias cd="z"
 
-export MANPAGER="nvim +Man!"
 if [[ "$(uname)" == "FreeBSD" ]]; then
     alias ll='ls -lGh'
     alias la='ls -AlGh'
