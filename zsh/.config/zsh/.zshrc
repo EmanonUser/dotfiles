@@ -1,15 +1,19 @@
 alias vi="nvim"
 alias vim="nvim"
 alias ls="ls --color"
-alias ll="ls --color --group-directories-first -lh"
-alias la="ls --color --group-directories-first -Alh --ignore='[^.]*'"
-alias ip="ip --color=auto"
 alias grep="grep --color"
 alias cd="z"
 
 export MANPAGER="nvim +Man!"
+if [[ "$(uname)" == "FreeBSD" ]]; then
+    alias ll='ls -lGh'
+    alias la='ls -AlGh'
+elif [[ "$(uname)" == "Linux" ]]; then
+    alias ll="ls --color --group-directories-first -lh"
+    alias la="ls --color --group-directories-first -Alh --ignore='[^.]*'"
+    alias ip="ip --color=auto"
+fi
 
-# The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
@@ -62,3 +66,5 @@ try_source_plugin "zsh-syntax-highlighting" \
   "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
   "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
   "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+
