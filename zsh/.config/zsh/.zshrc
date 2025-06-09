@@ -29,6 +29,10 @@ eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(zoxide init zsh)"
 eval "$(direnv hook zsh)"
 
+bindkey  "^[[H"   beginning-of-line
+bindkey  "^[[F"   end-of-line
+bindkey  "^[[3~"  delete-char
+
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 autoload edit-command-line
