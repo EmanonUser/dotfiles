@@ -10,6 +10,3 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 export SYSTEMD_EDITOR="nvim"
 export MANPAGER="nvim +Man!"
-
-. "$HOME/.atuin/bin/env"
-. "$HOME/.cargo/env"
