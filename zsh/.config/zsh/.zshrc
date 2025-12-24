@@ -70,4 +70,4 @@ try_source_plugin "zsh-syntax-highlighting" \
   "/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
   "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-
+source ~/.config/zsh/git_auto_fetch.zsh
