@@ -1,2 +1,4 @@
 .zcompdump
 lazy-lock.json
+.envrc
+.direnv
